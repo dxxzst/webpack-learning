@@ -6,13 +6,13 @@ module.exports = {
     mode: 'production', // 或开发环境下 'development'
     entry: {
         'main': './js/main.js',
-        'main2': './js/main2.js'
+        //'main2': './js/main2.js'
     },
     output: {
         // 将所有依赖的模块合并输出到一个叫bundle.js文件内
-        //filename: 'bundle.js',
-        filename: '[name]_[hash:8].js', // [name] 的值是entry的键值, 会输出多个入口文件
-        chunkFilename: '[name].min.js',
+        filename: 'bundle.js',
+        // filename: '[name]_[hash:8].js', // [name] 的值是entry的键值, 会输出多个入口文件
+        // chunkFilename: '[name].min.js',
         // 将输出的文件都放在dist目录下
         path: path.resolve(__dirname, './dist'),
         publicPath: '/dist/'
@@ -31,6 +31,10 @@ module.exports = {
                 // 转换 .css文件需要使用的Loader
                 use: ['css-loader']
             })
+        }, {
+            // 对非文本文件采用file-loader去加载
+            test: /\.(gif|png|jpe?g|eot|woff|ttf|svg|pdf)$/,
+            use: ['file-loader']
         }]
     },
     plugins: [
