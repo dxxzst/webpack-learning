@@ -3,12 +3,19 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-    entry: './js/main.js',
+    mode: 'production', // 或开发环境下 'development'
+    entry: {
+        'main': './js/main.js',
+        'main2': './js/main2.js'
+    },
     output: {
         // 将所有依赖的模块合并输出到一个叫bundle.js文件内
-        filename: 'bundle.js',
+        //filename: 'bundle.js',
+        filename: '[name]_[hash:8].js', // [name] 的值是entry的键值, 会输出多个入口文件
+        chunkFilename: '[name].min.js',
         // 将输出的文件都放在dist目录下
-        path: path.resolve(__dirname, './dist')
+        path: path.resolve(__dirname, './dist'),
+        publicPath: '/dist/'
     },
     module: {
         rules: [{
