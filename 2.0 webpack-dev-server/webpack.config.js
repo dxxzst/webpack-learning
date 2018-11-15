@@ -15,7 +15,8 @@ module.exports = {
         inline: true, //通过代理客户端来控制网页刷新
         open: true, //自动打开默认的浏览器来查看网页
         overlay: true, //在浏览器页面上显示错误
-        stats: 'errors-only' //stats: 'errors-only' 表示只打印错误
+        stats: 'errors-only', //stats: 'errors-only' 表示只打印错误 该属性值还有 'minimal', 'normal', 'verbose' 等。
+        //compress: true //默认为false，当他为true的时候，它会对所有服务器资源采用gzip进行压缩
     },
     entry: './js/main.js',
     output: {
