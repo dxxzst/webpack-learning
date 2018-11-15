@@ -12,8 +12,9 @@ module.exports = {
         },
         historyApiFallback: true,
         //hot: true,
-        inline: false,
-        open: true
+        inline: true, //通过代理客户端来控制网页刷新
+        open: true, //自动打开默认的浏览器来查看网页
+        overlay: true //在浏览器页面上显示错误
     },
     entry: './js/main.js',
     output: {
