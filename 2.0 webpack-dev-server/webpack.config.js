@@ -3,6 +3,18 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
+    devServer: {
+        port: 8088,
+        contentBase: path.join(__dirname, "dist"),
+        host: '127.0.0.1',
+        headers: {
+            'X-foo': '112233'
+        },
+        historyApiFallback: true,
+        //hot: true,
+        inline: false,
+        open: true
+    },
     entry: './js/main.js',
     output: {
         filename: 'bundle.js',
