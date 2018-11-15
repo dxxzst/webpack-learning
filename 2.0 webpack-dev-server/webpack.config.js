@@ -14,7 +14,8 @@ module.exports = {
         //hot: true,
         inline: true, //通过代理客户端来控制网页刷新
         open: true, //自动打开默认的浏览器来查看网页
-        overlay: true //在浏览器页面上显示错误
+        overlay: true, //在浏览器页面上显示错误
+        stats: 'errors-only' //stats: 'errors-only' 表示只打印错误
     },
     entry: './js/main.js',
     output: {
