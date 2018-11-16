@@ -11,6 +11,8 @@ module.exports = {
         publicPath: '/dist'
     },
     mode: 'development',
+    //devtool: 'cheap-module-eval-source-map', //开发环境
+    devtool: 'cheap-module-source-map', //正式环境
     module: {
         rules: [{
                 // 使用正则去匹配要用该loader转换的css文件
@@ -46,6 +48,7 @@ module.exports = {
             filename: `main.css`
         })
     ],
+    //devtool: 'eval',
     devServer: {
         port: 8089,
         //contentBase: path.join(__dirname, "dist"), //配置项指定了服务器资源的根目录

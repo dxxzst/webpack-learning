@@ -16,6 +16,7 @@ import User from './demo1.js';
 //     console.log(a); // 打印出 1, 2, 3, 4
 // }
 
+console.log('main.js');
 // 使用
 //let user = new User("zen", "ihuangmx@qq.com");
 let user = User.register("zen", "ihuangmx@qq.com");
