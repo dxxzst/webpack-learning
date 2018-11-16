@@ -48,7 +48,7 @@ module.exports = {
     ],
     devServer: {
         port: 8089,
-        contentBase: path.join(__dirname, "dist"),
+        //contentBase: path.join(__dirname, "dist"), //配置项指定了服务器资源的根目录
         host: '127.0.0.1',
         headers: {
             'X-foo': '112233'
