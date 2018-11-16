@@ -3,21 +3,6 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-    devServer: {
-        port: 8089,
-        contentBase: path.join(__dirname, "dist"),
-        host: '127.0.0.1',
-        headers: {
-            'X-foo': '112233'
-        },
-        historyApiFallback: true,
-        //hot: true,
-        inline: true, //通过代理客户端来控制网页刷新
-        open: true, //自动打开默认的浏览器来查看网页
-        overlay: true, //在浏览器页面上显示错误
-        stats: 'errors-only', //stats: 'errors-only' 表示只打印错误 该属性值还有 'minimal', 'normal', 'verbose' 等。
-        //compress: true //默认为false，当他为true的时候，它会对所有服务器资源采用gzip进行压缩
-    },
     entry: './js/main.js',
     output: {
         filename: 'bundle.js',
@@ -42,6 +27,11 @@ module.exports = {
                     limit: 10000,
                     name: '[name].[ext]'
                 }
+            },
+            {
+                test: /\.js$/,
+                exclude: /(node_modules)/, // 排除文件
+                loader: 'babel-loader'
             }
         ]
     },
@@ -53,5 +43,20 @@ module.exports = {
             // 从js文件中提取出来的 .css文件的名称
             filename: `main.css`
         })
-    ]
+    ],
+    devServer: {
+        port: 8089,
+        contentBase: path.join(__dirname, "dist"),
+        host: '127.0.0.1',
+        headers: {
+            'X-foo': '112233'
+        },
+        historyApiFallback: true,
+        //hot: true,
+        inline: true, //通过代理客户端来控制网页刷新
+        open: true, //自动打开默认的浏览器来查看网页
+        overlay: true, //在浏览器页面上显示错误
+        stats: 'errors-only', //stats: 'errors-only' 表示只打印错误 该属性值还有 'minimal', 'normal', 'verbose' 等。
+        //compress: true //默认为false，当他为true的时候，它会对所有服务器资源采用gzip进行压缩
+    }
 }
