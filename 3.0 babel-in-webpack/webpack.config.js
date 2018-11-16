@@ -31,7 +31,9 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /(node_modules)/, // 排除文件
-                loader: 'babel-loader'
+                use: {
+                    loader: 'babel-loader'
+                }
             }
         ]
     },
