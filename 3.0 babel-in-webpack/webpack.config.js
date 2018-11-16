@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     devServer: {
-        port: 8088,
+        port: 8089,
         contentBase: path.join(__dirname, "dist"),
         host: '127.0.0.1',
         headers: {
